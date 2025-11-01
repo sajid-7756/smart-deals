@@ -29,7 +29,7 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("data after save", data);
+            console.warn(data.message);
           })
           .catch((err) => {
             console.log(err);

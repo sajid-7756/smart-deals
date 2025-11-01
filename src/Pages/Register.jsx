@@ -28,7 +28,7 @@ const Register = () => {
     signInWithGoogle()
       .then((res) => {
         const user = res.user;
-        console.log(user);
+
         const newUser = {
           name: user.displayName,
           email: user.email,
@@ -44,7 +44,7 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("data after save", data);
+            console.log(data.message);
           })
           .catch((err) => {
             console.log(err);
