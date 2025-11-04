@@ -3,8 +3,9 @@ import Hero from "../Components/Hero/Hero";
 import LatestProducts from "../Components/Latest Products/LatestProducts";
 
 const latestProductsPromise = fetch(
-  "http://localhost:3000/latest-products"
+  "http://localhost:5000/latest-products"
 ).then((res) => res.json());
+console.log(latestProductsPromise)
 
 const Home = () => {
   return (

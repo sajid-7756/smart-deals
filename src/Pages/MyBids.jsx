@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
 
@@ -10,7 +10,7 @@ const MyBids = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/bids?email=${user.email}`, {})
+      fetch(`http://localhost:5000/bids?email=${user.email}`, {})
         .then((res) => res.json())
         .then((data) => {
           setBids(data);
@@ -30,7 +30,7 @@ const MyBids = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/bids/${id}`, {
+        fetch(`http://localhost:5000/bids/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -72,11 +72,9 @@ const MyBids = () => {
             {/* row 1 */}
             {bids.map((bid, index) => (
               <tr key={bid._id}>
-                <td>
-                  <div className="flex items-center gap-5">
-                    <th>{index + 1}</th>
-                  </div>
-                </td>
+                <th>
+                  <p>{index + 1}</p>
+                </th>
                 <th>
                   <div className="avatar flex items-center gap-2">
                     <div className="mask mask-squircle h-12 w-12">
